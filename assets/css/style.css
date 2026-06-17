@@ -436,27 +436,22 @@ section { padding: 6rem 2rem; }
 }
 .product-footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-.product-price {
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  color: var(--gold);
-  letter-spacing: 0.1em;
-}
 .product-btn {
-  font-size: 0.48rem;
-  letter-spacing: 0.3em;
+  font-size: 0.52rem;
+  letter-spacing: 0.32em;
   color: var(--black);
   background: var(--gold);
-  padding: 0.45rem 1rem;
+  padding: 0.65rem 1rem;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
   font-weight: 700;
   transition: background 0.3s;
   text-decoration: none;
+  width: 100%;
+  text-align: center;
 }
 .product-btn:hover { background: #E8C97A; }
 
@@ -538,43 +533,6 @@ section { padding: 6rem 2rem; }
   inset: 0;
   background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(123,47,190,0.15) 0%, transparent 70%);
 }
-.notify-form {
-  display: flex;
-  max-width: 480px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.notify-form input {
-  flex: 1;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(123,47,190,0.3);
-  border-right: none;
-  padding: 1rem 1.5rem;
-  color: var(--white);
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  outline: none;
-  transition: border-color 0.3s;
-}
-.notify-form input::placeholder { color: var(--muted); }
-.notify-form input:focus { border-color: var(--purple); }
-.notify-form button {
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  padding: 1rem 1.8rem;
-  font-family: 'Cinzel', serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s;
-  white-space: nowrap;
-}
-.notify-form button:hover { background: #E8C97A; }
 .notify-note {
   font-size: 0.52rem;
   letter-spacing: 0.2em;
@@ -688,7 +646,4 @@ footer {
   .values-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .notify-form { flex-direction: column; }
-  .notify-form input { border-right: 1px solid rgba(123,47,190,0.3); border-bottom: none; }
-  .notify-form button { width: 100%; }
 }

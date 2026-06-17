@@ -28,27 +28,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Notify form
-const notifyForm = document.querySelector('.notify-form');
-if (notifyForm) {
-  notifyForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = notifyForm.querySelector('input');
-    const btn = notifyForm.querySelector('button');
-    if (input.value && input.value.includes('@')) {
-      btn.textContent = 'Done ✓';
-      btn.style.background = '#2D8A4E';
-      btn.style.color = '#fff';
-      input.value = '';
-      setTimeout(() => {
-        btn.textContent = 'Notify Me';
-        btn.style.background = '';
-        btn.style.color = '';
-      }, 3000);
-    }
-  });
-}
-
 // Fade in on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
