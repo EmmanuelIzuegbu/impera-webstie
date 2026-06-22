@@ -3,273 +3,1305 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IMPERA — Premium sportswear built for those who command their game. Shop men's and women's performance apparel.">
+  <meta name="description" content="IMPERA — Premium sportswear built for those who command their game. Coming soon.">
   <meta property="og:title" content="IMPERA — Command Your Game">
-  <meta property="og:description" content="Premium sportswear. Built to conquer.">
+  <meta property="og:description" content="Premium sportswear. Built to conquer. Coming soon.">
   <meta property="og:image" content="assets/images/logo.png">
   <title>IMPERA — Command Your Game</title>
   <link rel="icon" type="image/png" href="assets/images/icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@100;200;300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:  #080808;
+      --purple: #7B2FBE;
+      --gold:   #C9A84C;
+      --gold-light: #E8C97A;
+      --white:  #F5F5F5;
+      --muted:  rgba(245,245,245,0.45);
+      --dark:   #0A0A0A;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width:3px; }
+    ::-webkit-scrollbar-track { background:var(--black); }
+    ::-webkit-scrollbar-thumb { background:var(--purple); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top:0; left:0; right:0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 5rem;
+      transition: all 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      padding: 1rem 5rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 32px; }
+    .nav-logo-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.38em;
+      color: var(--white);
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.58rem;
+      letter-spacing: 0.38em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color 0.3s;
+      font-weight: 300;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-notify {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.65rem 1.6rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 1px solid var(--gold);
+    }
+    .nav-notify:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 5rem 6rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow span {
+      font-size: 0.55rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      letter-spacing: 0.3em;
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .hero-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 2;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      max-width: 420px;
+      margin-bottom: 3.5rem;
+    }
+    .hero-desc strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 340px;
+    }
+    .btn-gold {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.1rem 2rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.62rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+    .btn-outline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: transparent;
+      color: var(--white);
+      padding: 1.1rem 2rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      font-size: 0.62rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(245,245,245,0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .stat-num {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+    .stat-label {
+      font-size: 0.5rem;
+      letter-spacing: 0.35em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--black) 0%, transparent 30%),
+                  linear-gradient(to top, var(--black) 0%, transparent 20%);
+      z-index: 1;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(123,47,190,0.08);
+      z-index: 1;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--gold);
+      padding: 0.9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-inner span {
+      font-size: 0.55rem;
+      letter-spacing: 0.45em;
+      color: var(--black);
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0 2.5rem;
+    }
+    .marquee-inner .dot {
+      color: var(--black);
+      opacity: 0.4;
+      padding: 0;
+    }
+
+    /* ── BRAND PILLARS ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .pillar {
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.3s;
+    }
+    .pillar:last-child { border-right: none; }
+    .pillar:hover { background: rgba(123,47,190,0.05); }
+    .pillar-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .pillar-desc {
+      font-size: 0.62rem;
+      color: var(--muted);
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      font-weight: 300;
+    }
+
+    /* ── STATEMENT ── */
+    .statement {
+      padding: 8rem 5rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .statement::before {
+      content: 'IMPERA';
+      position: absolute;
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(8rem, 20vw, 18rem);
+      color: rgba(123,47,190,0.04);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      letter-spacing: 0.3em;
+      pointer-events: none;
+      user-select: none;
+    }
+    .statement-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .statement-quote {
+      font-size: 0.5rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .statement-quote::before,
+    .statement-quote::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+    .statement-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      font-size: clamp(1.2rem, 3vw, 2.2rem);
+      letter-spacing: 0.08em;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+    .statement-text em {
+      color: var(--gold);
+      font-style: normal;
+    }
+    .statement-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ── COLLECTIONS ── */
+    .collections {
+      padding: 7rem 5rem;
+      background: var(--black);
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .section-header-left {}
+    .section-eyebrow {
+      font-size: 0.52rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      letter-spacing: 0.18em;
+      color: var(--white);
+    }
+    .section-link {
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: gap 0.3s;
+      font-weight: 300;
+    }
+    .section-link:hover { gap: 1rem; }
+    .section-link::after { content: '→'; font-size: 0.9rem; }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5px;
+    }
+    .col-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #111;
+    }
+    .col-card img {
+      width: 100%;
+      height: 640px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+      filter: brightness(0.85);
+    }
+    .col-card:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.7);
+    }
+    .col-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.3) 45%, transparent 75%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+    .col-tag {
+      font-size: 0.48rem;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.5);
+      padding: 0.25rem 0.9rem;
+      width: fit-content;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+    .col-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      letter-spacing: 0.2em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .col-sub {
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: rgba(123,47,190,0.9);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .col-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.52rem;
+      letter-spacing: 0.38em;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.75rem 1.8rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: fit-content;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s;
+    }
+    .col-card:hover .col-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Right side stacked */
+    .col-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+    }
+    .col-stack .col-card img { height: 318px; }
+
+    /* ── PRODUCT SPOTLIGHT ── */
+    .spotlight {
+      padding: 7rem 5rem;
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .spotlight-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-img img {
+      width: 100%;
+      display: block;
+      filter: brightness(0.9);
+      transition: transform 0.6s;
+    }
+    .spotlight-img:hover img { transform: scale(1.02); }
+    .spotlight-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(123,47,190,0.15) 0%, transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .spotlight-badge {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      z-index: 2;
+      font-size: 0.48rem;
+      letter-spacing: 0.38em;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.3rem 0.9rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .spotlight-content {}
+    .spotlight-eyebrow {
+      font-size: 0.52rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+    .spotlight-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      letter-spacing: 0.15em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .spotlight-line {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      color: var(--purple);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .spotlight-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 2.1;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      margin-bottom: 2.5rem;
+    }
+    .spotlight-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-bottom: 3rem;
+    }
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .feature-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .feature-text {
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+    .spotlight-divider {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── COMING SOON SECTION ── */
+    .coming {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem;
+      overflow: hidden;
+    }
+    .coming-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(123,47,190,0.18) 0%, transparent 70%);
+    }
+    .coming-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(123,47,190,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(123,47,190,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .coming-content { position: relative; z-index: 2; max-width: 700px; }
+    .coming-icon {
+      width: 70px;
+      margin: 0 auto 2.5rem;
+      filter: drop-shadow(0 0 20px rgba(201,168,76,0.4));
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .coming-eyebrow {
+      font-size: 0.52rem;
+      letter-spacing: 0.6em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .coming-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      letter-spacing: 0.25em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .coming-sub {
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .coming-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 2;
+      font-weight: 300;
+      margin-bottom: 3.5rem;
+      letter-spacing: 0.04em;
+    }
+    .coming-email-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.1rem 2.8rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      transition: all 0.3s;
+      margin-bottom: 1.5rem;
+    }
+    .coming-email-cta:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+    .coming-note {
+      font-size: 0.52rem;
+      letter-spacing: 0.25em;
+      color: rgba(245,245,245,0.25);
+      text-transform: uppercase;
+    }
+    .coming-note a {
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .coming-note a:hover { opacity: 1; }
+
+    /* ── VALUES ── */
+    .values {
+      padding: 6rem 5rem;
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1.5px;
+      margin-top: 4rem;
+    }
+    .val-card {
+      padding: 3rem 2.5rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: all 0.3s;
+    }
+    .val-card:hover {
+      background: rgba(123,47,190,0.06);
+      border-color: rgba(201,168,76,0.15);
+    }
+    .val-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(201,168,76,0.15);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+    .val-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .val-desc {
+      font-size: 0.6rem;
+      color: var(--muted);
+      line-height: 2;
+      letter-spacing: 0.04em;
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding: 5rem 5rem 2.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    .footer-brand {}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+    }
+    .footer-logo img { height: 28px; }
+    .footer-logo span {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      letter-spacing: 0.38em;
+      color: var(--white);
+    }
+    .footer-brand p {
+      font-size: 0.6rem;
+      color: var(--muted);
+      line-height: 2.1;
+      letter-spacing: 0.04em;
+      font-weight: 300;
+      max-width: 240px;
+      margin-bottom: 2rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-weight: 600;
+    }
+    .footer-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .footer-col h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.9rem; }
+    .footer-col ul li a {
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 300;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom span {
+      font-size: 0.48rem;
+      letter-spacing: 0.28em;
+      color: rgba(245,245,245,0.15);
+      text-transform: uppercase;
+    }
+    .footer-bottom-right {
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) {
+      nav { padding: 1.2rem 2.5rem; }
+      nav.scrolled { padding: 0.9rem 2.5rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 9rem 2.5rem 4rem; }
+      .hero-right { height: 60vw; }
+      .spotlight { grid-template-columns: 1fr; padding: 5rem 2.5rem; gap: 3rem; }
+      .collections { padding: 5rem 2.5rem; }
+      .values { padding: 5rem 2.5rem; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      footer { padding: 4rem 2.5rem 2rem; }
+      .statement { padding: 6rem 2.5rem; }
+    }
+    @media(max-width:768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links, .nav-notify { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: rgba(8,8,8,0.99);
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 999;
+      }
+      .nav-links.open a { font-size: 0.9rem; letter-spacing: 0.3em; }
+      .nav-notify { display: none; }
+      .hero-left { padding: 8rem 1.5rem 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .collections-grid { grid-template-columns: 1fr; }
+      .col-stack { flex-direction: row; }
+      .col-stack .col-card img { height: 220px; }
+      .col-card img { height: 420px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-right { flex-direction: column; gap: 0.5rem; align-items: center; }
+      .statement { padding: 5rem 1.5rem; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav>
+  <!-- NAV -->
+  <nav id="navbar">
     <a href="#" class="nav-logo">
       <img src="assets/images/icon.png" alt="IMPERA">
       <span class="nav-logo-text">IMPERA</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#collections">Collections</a></li>
-      <li><a href="#products">Products</a></li>
+      <li><a href="#spotlight">Men's</a></li>
+      <li><a href="#coming">Coming Soon</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Drop%20Alert" class="nav-cta">Coming Soon</a></li>
     </ul>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-right">
+      <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Drop%20Alert" class="nav-notify">Get Notified</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
+  <!-- HERO -->
   <section class="hero">
-    <img src="assets/images/icon.png" alt="IMPERA Icon" class="hero-icon">
-    <h1>IMPERA</h1>
-    <p class="hero-tagline">Command Your Game</p>
-    <p class="hero-sub">
-      More than sportswear. A mindset. A standard.
-      Built for those who move with purpose, compete with discipline,
-      and refuse to settle for anything less than elite.
-    </p>
-    <div class="hero-btns">
-      <a href="#collections" class="btn-primary">Shop Collections</a>
-      <a href="#about" class="btn-secondary">Our Story</a>
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>New Era of Performance</span>
+      </div>
+      <h1 class="hero-title">IM<br>PE<br>RA</h1>
+      <p class="hero-subtitle">Command Your Game</p>
+      <p class="hero-desc">
+        More than sportswear. A <strong>mindset</strong>. A <strong>standard</strong>.
+        Built for those who move with purpose, compete with discipline,
+        and refuse to settle for anything less than elite.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Drop%20Alert%20Signup&body=Hi%20IMPERA%2C%0A%0APlease%20add%20me%20to%20the%20early%20access%20list.%0A%0AName%3A%20%0AEmail%3A%20" class="btn-gold">Get Early Access</a>
+        <a href="#collections" class="btn-outline">View Collections</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Lines</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">16–30</span>
+          <span class="stat-label">Target Age</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">NL</span>
+          <span class="stat-label">Born Here</span>
+        </div>
+      </div>
     </div>
-    <div class="scroll-hint">
-      <div class="scroll-hint-line"></div>
-      <span>Scroll</span>
+    <div class="hero-right">
+      <img src="assets/images/brand-overview.png" alt="IMPERA — Built To Conquer">
     </div>
   </section>
 
-  <!-- ── MARQUEE ── -->
-  <div class="coming-soon">
-    <div class="coming-soon-inner">
-      <span>New Collection Dropping Soon</span>
-      <span class="dot">✦</span>
-      <span>IMPERA Valdyr — Men's Line</span>
-      <span class="dot">✦</span>
-      <span>IMPERA Valdis — Women's Line</span>
-      <span class="dot">✦</span>
-      <span>Built To Conquer</span>
-      <span class="dot">✦</span>
-      <span>New Collection Dropping Soon</span>
-      <span class="dot">✦</span>
-      <span>IMPERA Valdyr — Men's Line</span>
-      <span class="dot">✦</span>
-      <span>IMPERA Valdis — Women's Line</span>
-      <span class="dot">✦</span>
-      <span>Built To Conquer</span>
-      <span class="dot">✦</span>
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <span>IMPERA Valdyr</span><span class="dot">✦</span>
+      <span>Men's Performance</span><span class="dot">✦</span>
+      <span>IMPERA Valdis</span><span class="dot">✦</span>
+      <span>Women's Collection</span><span class="dot">✦</span>
+      <span>Command Your Game</span><span class="dot">✦</span>
+      <span>Built To Conquer</span><span class="dot">✦</span>
+      <span>Coming Soon</span><span class="dot">✦</span>
+      <span>Netherlands 🇳🇱</span><span class="dot">✦</span>
+      <span>IMPERA Valdyr</span><span class="dot">✦</span>
+      <span>Men's Performance</span><span class="dot">✦</span>
+      <span>IMPERA Valdis</span><span class="dot">✦</span>
+      <span>Women's Collection</span><span class="dot">✦</span>
+      <span>Command Your Game</span><span class="dot">✦</span>
+      <span>Built To Conquer</span><span class="dot">✦</span>
+      <span>Coming Soon</span><span class="dot">✦</span>
+      <span>Netherlands 🇳🇱</span><span class="dot">✦</span>
     </div>
   </div>
 
-  <!-- ── BRAND STATEMENT ── -->
-  <div class="statement" id="about">
-    <p class="statement-text">
-      IMPERA is more than sportswear.<br>
-      It's a <em>mindset</em>. A <em>standard</em>.<br>
-      We build confidence, discipline and legacy<br>
-      through performance and style.
-    </p>
-    <p class="statement-author">— IMPERA · Built in the Netherlands · Built for the World</p>
+  <!-- PILLARS -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">⚡</div>
+      <div class="pillar-title">Performance</div>
+      <div class="pillar-desc">4-way stretch fabrics engineered to move with your body at peak intensity — in the gym and on the court.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">👑</div>
+      <div class="pillar-title">Premium</div>
+      <div class="pillar-desc">Elite materials and construction that look and feel as good as they perform. No compromise.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🔱</div>
+      <div class="pillar-title">Identity</div>
+      <div class="pillar-desc">Wear a brand that stands for something — discipline, ambition, and legacy. IMPERA is a mindset.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌍</div>
+      <div class="pillar-title">Legacy</div>
+      <div class="pillar-desc">Born in the Netherlands. Built for the world. Baby steps. Big future. This is just the beginning.</div>
+    </div>
   </div>
 
-  <!-- ── COLLECTIONS ── -->
+  <!-- STATEMENT -->
+  <div class="statement" id="about">
+    <div class="statement-inner">
+      <div class="statement-quote">Brand Vision</div>
+      <p class="statement-text">
+        IMPERA is more than sportswear.<br>
+        It's a <em>mindset</em>. A <em>standard</em>.<br>
+        We build <em>confidence</em>, discipline and legacy<br>
+        through performance and style.
+      </p>
+      <p class="statement-sub">— Built in the Netherlands · Built for the World</p>
+    </div>
+  </div>
+
+  <!-- COLLECTIONS -->
   <section class="collections" id="collections">
-    <p class="sec-label">Shop By Line</p>
-    <h2 class="sec-title">Our Collections</h2>
-    <p class="sec-sub">Two lines. One standard. Built for those who demand performance and presence in equal measure.</p>
-    <div class="divider" style="margin-bottom:3.5rem;"></div>
+    <div class="section-header">
+      <div class="section-header-left">
+        <p class="section-eyebrow">Shop By Line</p>
+        <h2 class="section-title">Our Collections</h2>
+      </div>
+      <a href="#coming" class="section-link">Notify Me When Live</a>
+    </div>
 
     <div class="collections-grid">
-
-      <!-- VALDYR — MEN -->
-      <div class="collection-card">
-        <img src="assets/images/brand-overview.png" alt="IMPERA Valdyr — Men's Collection">
-        <div class="collection-overlay">
-          <div class="collection-pill">Men's Line</div>
-          <div class="collection-name">IMPERA VALDYR</div>
-          <div class="collection-sub">Compression · Basketball · Performance</div>
-          <a href="#products" class="collection-link">Explore Collection</a>
+      <!-- Men's — large left card -->
+      <div class="col-card">
+        <img src="assets/images/brand-overview.png" alt="IMPERA Valdyr — Men's">
+        <div class="col-overlay">
+          <div class="col-tag">Men's Line</div>
+          <div class="col-name">IMPERA VALDYR</div>
+          <div class="col-sub">Compression · Basketball · Performance</div>
+          <a href="#spotlight" class="col-btn">View Collection</a>
         </div>
       </div>
 
-      <!-- VALDIS — WOMEN -->
-      <div class="collection-card">
-        <img src="assets/images/leggings.png" alt="IMPERA Valdis — Women's Collection">
-        <div class="collection-overlay">
-          <div class="collection-pill">Women's Line</div>
-          <div class="collection-name">IMPERA VALDIS</div>
-          <div class="collection-sub">Leggings · Sports Bras · Activewear</div>
-          <a href="#products" class="collection-link">Explore Collection</a>
+      <!-- Women's — right stacked -->
+      <div class="col-stack">
+        <div class="col-card">
+          <img src="assets/images/leggings.png" alt="IMPERA Valdis — Leggings">
+          <div class="col-overlay">
+            <div class="col-tag">Women's Line</div>
+            <div class="col-name">IMPERA VALDIS</div>
+            <div class="col-sub">Leggings · Sports Bras · Activewear</div>
+            <a href="#coming" class="col-btn">Coming Soon</a>
+          </div>
+        </div>
+        <div class="col-card">
+          <img src="assets/images/shorts.png" alt="IMPERA Valdis — Shorts">
+          <div class="col-overlay">
+            <div class="col-tag">Women's Shorts</div>
+            <div class="col-name">VALDIS SHORTS</div>
+            <div class="col-sub">4 Styles · Biker · Basketball · Running</div>
+            <a href="#coming" class="col-btn">Coming Soon</a>
+          </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ── PRODUCTS ── -->
-  <section class="products" id="products">
-    <p class="sec-label">Featured Products</p>
-    <h2 class="sec-title">Core Collection</h2>
-    <p class="sec-sub">Premium performance gear designed to move with you — in the gym, on the court, and everywhere in between.</p>
-    <div class="divider" style="margin-bottom:3.5rem;"></div>
-
-    <div class="products-grid">
-
-      <!-- Product 1 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/images/compression-top.png" alt="Women's Compression Top">
-          <div class="product-badge">New</div>
+  <!-- PRODUCT SPOTLIGHT -->
+  <section class="spotlight" id="spotlight">
+    <div class="spotlight-img">
+      <img src="assets/images/mens-compression.png" alt="IMPERA Valdyr — Men's Compression Top">
+      <div class="spotlight-badge">Men's · Valdyr</div>
+    </div>
+    <div class="spotlight-content">
+      <p class="spotlight-eyebrow">Featured Product</p>
+      <h2 class="spotlight-title">Men's Compression Top</h2>
+      <p class="spotlight-line">IMPERA VALDYR</p>
+      <div class="spotlight-divider"></div>
+      <p class="spotlight-desc">
+        Engineered for performance. Designed to move with you.
+        Second skin feel for maximum comfort and focus — whether
+        you're training, competing, or dominating on the court.
+      </p>
+      <div class="spotlight-features">
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span class="feature-text">4-Way Stretch Fabric</span>
         </div>
-        <div class="product-info">
-          <div class="product-line">Impera Valdis</div>
-          <div class="product-name">Compression Top</div>
-          <div class="product-desc">Second skin fit. 4-way stretch. Moisture wicking fabric engineered for maximum performance and focus.</div>
-          <div class="product-footer">
-            <a href="mailto:wearimperaofficial@gmail.com?subject=Notify%20Me%20-%20Compression%20Top" class="product-btn">Notify Me</a>
-          </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span class="feature-text">Moisture Wicking Technology</span>
         </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/images/leggings.png" alt="Women's Leggings">
-          <div class="product-badge">Best Seller</div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span class="feature-text">Second Skin Fit</span>
         </div>
-        <div class="product-info">
-          <div class="product-line">Impera Valdis</div>
-          <div class="product-name">Performance Leggings</div>
-          <div class="product-desc">Squat proof. High waist. 78% polyester 22% spandex. Built for confidence and movement in every direction.</div>
-          <div class="product-footer">
-            <a href="mailto:wearimperaofficial@gmail.com?subject=Notify%20Me%20-%20Performance%20Leggings" class="product-btn">Notify Me</a>
-          </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span class="feature-text">Breathable Construction</span>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <span class="feature-text">Available in 5 Colorways</span>
         </div>
       </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/images/shorts.png" alt="Women's Shorts">
-        </div>
-        <div class="product-info">
-          <div class="product-line">Impera Valdis</div>
-          <div class="product-name">Training Shorts</div>
-          <div class="product-desc">Four styles. Biker, Basketball, Running, and Training. Built for speed, comfort, and movement.</div>
-          <div class="product-footer">
-            <a href="mailto:wearimperaofficial@gmail.com?subject=Notify%20Me%20-%20Training%20Shorts" class="product-btn">Notify Me</a>
-          </div>
-        </div>
-      </div>
-
+      <a href="mailto:wearimperaofficial@gmail.com?subject=Notify%20Me%20-%20Men%27s%20Compression%20Top&body=Hi%20IMPERA%2C%0A%0APlease%20notify%20me%20when%20the%20Men%27s%20Compression%20Top%20is%20available.%0A%0AName%3A%20%0AEmail%3A%20" class="btn-gold">Notify Me When Available</a>
     </div>
   </section>
 
-  <!-- ── VALUES ── -->
+  <!-- COMING SOON -->
+  <section class="coming" id="coming">
+    <div class="coming-bg"></div>
+    <div class="coming-grid"></div>
+    <div class="coming-content">
+      <img src="assets/images/icon.png" alt="IMPERA" class="coming-icon">
+      <p class="coming-eyebrow">Launching Soon</p>
+      <h2 class="coming-title">IMPERA</h2>
+      <p class="coming-sub">Command Your Game</p>
+      <p class="coming-desc">
+        We're putting the finishing touches on something built to last.
+        Be the first to know when IMPERA drops — get exclusive early access
+        before we open to the public.
+      </p>
+      <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Early%20Access%20Request&body=Hi%20IMPERA%2C%0A%0APlease%20add%20me%20to%20the%20early%20access%20list.%0A%0AName%3A%20%0AEmail%3A%20" class="coming-email-cta">Request Early Access</a>
+      <p class="coming-note">
+        Email us directly at
+        <a href="mailto:wearimperaofficial@gmail.com">wearimperaofficial@gmail.com</a>
+        · No spam, ever.
+      </p>
+    </div>
+  </section>
+
+  <!-- VALUES -->
   <section class="values">
-    <p class="sec-label">Why IMPERA</p>
-    <h2 class="sec-title">Built Different</h2>
-    <p class="sec-sub">Every piece is designed with one purpose — to make you perform and look elite at the same time.</p>
-    <div class="divider" style="margin-bottom:3.5rem;"></div>
-
+    <div class="section-header">
+      <div class="section-header-left">
+        <p class="section-eyebrow">Why IMPERA</p>
+        <h2 class="section-title">Built Different</h2>
+      </div>
+    </div>
     <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">⚡</div>
-        <div class="value-title">Performance</div>
-        <div class="value-desc">4-way stretch fabrics engineered to move with your body at peak intensity.</div>
+      <div class="val-card">
+        <div class="val-num">01</div>
+        <div class="val-title">Premium Fabric</div>
+        <div class="val-desc">Every piece uses performance-grade materials. 4-way stretch, moisture wicking, and squat-proof construction for athletes who demand the best.</div>
       </div>
-      <div class="value-card">
-        <div class="value-icon">👑</div>
-        <div class="value-title">Premium</div>
-        <div class="value-desc">Elite materials and construction that look and feel as good as they perform.</div>
+      <div class="val-card">
+        <div class="val-num">02</div>
+        <div class="val-title">Elite Design</div>
+        <div class="val-desc">Minimal, intentional, powerful. IMPERA pieces look as elite as they perform — from the gym floor to the streets.</div>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🔱</div>
-        <div class="value-title">Identity</div>
-        <div class="value-desc">Wear a brand that stands for something — discipline, ambition, and legacy.</div>
+      <div class="val-card">
+        <div class="val-num">03</div>
+        <div class="val-title">Dual Identity</div>
+        <div class="val-desc">Two lines, one standard. IMPERA Valdyr for men. IMPERA Valdis for women. Both built with the same obsessive attention to quality.</div>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🌍</div>
-        <div class="value-title">Built to Last</div>
-        <div class="value-desc">Born in the Netherlands. Built for the world. Baby steps. Big future.</div>
+      <div class="val-card">
+        <div class="val-num">04</div>
+        <div class="val-title">Born to Grow</div>
+        <div class="val-desc">Started in the Netherlands. Built for Europe. Destined for the world. IMPERA is a long game — and we're just getting started.</div>
       </div>
     </div>
   </section>
 
-  <!-- ── NOTIFY ── -->
-  <section class="notify" id="notify">
-    <p class="sec-label">Drop Alert</p>
-    <h2 class="sec-title">Be First In Line</h2>
-    <p class="sec-sub">IMPERA is launching soon. Reach out and we'll personally notify you the moment we go live — with early access before the public release.</p>
-    <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Drop%20Alert%20Signup&body=Hi%20IMPERA%2C%0A%0APlease%20add%20me%20to%20the%20drop%20alert%20list.%0A%0AName%3A%20%0AEmail%3A%20" class="btn-primary" style="display:inline-block;">Notify Me By Email</a>
-    <p class="notify-note">wearimperaofficial@gmail.com · We'll reply personally, no spam, ever.</p>
-  </section>
-
-  <!-- ── FOOTER ── -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-grid">
-
+    <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="IMPERA">
-        <p>More than sportswear. A mindset. A standard. We build confidence, discipline and legacy through performance and style.</p>
+        <a href="#" class="footer-logo">
+          <img src="assets/images/icon.png" alt="IMPERA">
+          <span>IMPERA</span>
+        </a>
+        <p>More than sportswear. A mindset. A standard. We build confidence, discipline and legacy through performance and style. Born in the Netherlands. Built for the world.</p>
         <div class="footer-social">
           <a href="https://instagram.com/wearimpera" target="_blank" rel="noopener">IG</a>
           <a href="https://tiktok.com/@wearimpera" target="_blank" rel="noopener">TT</a>
         </div>
       </div>
-
       <div class="footer-col">
-        <h4>Shop</h4>
+        <h4>Collections</h4>
         <ul>
-          <li><a href="#collections">Men's — Valdyr</a></li>
-          <li><a href="#collections">Women's — Valdis</a></li>
-          <li><a href="#products">All Products</a></li>
-          <li><a href="#notify">Coming Soon</a></li>
+          <li><a href="#collections">IMPERA Valdyr — Men's</a></li>
+          <li><a href="#collections">IMPERA Valdis — Women's</a></li>
+          <li><a href="#spotlight">Men's Compression Top</a></li>
+          <li><a href="#collections">Women's Leggings</a></li>
+          <li><a href="#collections">Women's Shorts</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Brand</h4>
         <ul>
-          <li><a href="#about">Our Story</a></li>
           <li><a href="#about">Brand Vision</a></li>
-          <li><a href="#about">Target Audience</a></li>
-          <li><a href="#notify">Drop Alerts</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#coming">Early Access</a></li>
+          <li><a href="#coming">Drop Alerts</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:wearimperaofficial@gmail.com">wearimperaofficial@gmail.com</a></li>
           <li><a href="https://instagram.com/wearimpera" target="_blank" rel="noopener">@wearimpera</a></li>
+          <li><a href="https://tiktok.com/@wearimpera" target="_blank" rel="noopener">TikTok: @wearimpera</a></li>
           <li><a href="#">Netherlands 🇳🇱</a></li>
         </ul>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <span>© 2026 IMPERA — All rights reserved</span>
-      <span>wearimpera.com</span>
-      <span>Discipline · Strength · Focus · Legacy</span>
+      <div class="footer-bottom-right">
+        <span>wearimpera.com</span>
+        <span>Discipline · Strength · Focus · Legacy</span>
+      </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.col-card, .val-card, .pillar, .spotlight-content, .spotlight-img').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
