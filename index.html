@@ -3,19 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IMPERA — More than sportswear. A movement. Command Your Game.">
-  <title>IMPERA — Command Your Game</title>
+  <meta name="description" content="IMPERA — Athletic premium streetwear built for athletes who refuse to settle. Command Your Game. Born in the Netherlands.">
+  <title>IMPERA — Command Your Game | Athletic Premium Streetwear</title>
   <link rel="icon" type="image/png" href="assets/images/icon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="IMPERA — Command Your Game">
+  <meta property="og:description" content="Athletic premium streetwear built for athletes who refuse to settle. Discipline creates greatness.">
+  <meta property="og:image" content="assets/images/hero.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wearimpera.com">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IMPERA — Command Your Game">
+  <meta name="twitter:description" content="Athletic premium streetwear. Discipline creates greatness.">
+  <meta name="twitter:image" content="assets/images/hero.png">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "IMPERA",
+    "description": "Athletic premium streetwear built for athletes who refuse to settle.",
+    "url": "https://wearimpera.com",
+    "logo": "assets/images/logo.png",
+    "email": "wearimperaofficial@gmail.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "NL" },
+    "sameAs": [
+      "https://instagram.com/wearimpera",
+      "https://tiktok.com/@wearimpera"
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     /* ── RESET & VARIABLES ── */
     :root {
-      --black:   #060606;
-      --purple:  #7B2FBE;
-      --gold:    #C9A84C;
-      --gold-l:  #E8C97A;
-      --white:   #F0F0F0;
-      --muted:   rgba(240,240,240,0.38);
+      --black:   #050505;
+      --purple:  #6D28D9;
+      --gold:    #C9A227;
+      --gold-l:  #ddb84a;
+      --white:   #F8F8F8;
+      --dark:    #111111;
+      --muted:   rgba(248,248,248,0.38);
       --ease:    cubic-bezier(0.16,1,0.3,1);
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -108,9 +137,9 @@
     }
     nav.scrolled {
       padding: 1.2rem 5vw;
-      background: rgba(6,6,6,0.94);
+      background: rgba(5,5,5,0.96);
       backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(201,168,76,0.08);
+      border-bottom: 1px solid rgba(201,162,39,0.18);
     }
     .nav-logo {
       display: flex;
@@ -146,14 +175,14 @@
       font-weight: 600;
       letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--black);
-      background: var(--gold);
+      color: var(--white);
+      background: var(--purple);
       padding: 0.65rem 1.6rem;
       text-decoration: none;
-      transition: all 0.3s;
-      border: 1px solid var(--gold);
+      transition: all 0.4s var(--ease);
+      border: 1px solid var(--purple);
     }
-    .nav-cta:hover { background: transparent; color: var(--gold); }
+    .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -340,7 +369,9 @@
     /* ── MARQUEE ── */
     .marquee {
       overflow: hidden;
-      background: var(--gold);
+      background: var(--dark);
+      border-top: 1px solid rgba(201,162,39,0.15);
+      border-bottom: 1px solid rgba(201,162,39,0.15);
       padding: 1rem 0;
       white-space: nowrap;
     }
@@ -350,13 +381,13 @@
     }
     .marquee-track span {
       font-size: 0.55rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.45em;
       text-transform: uppercase;
-      color: var(--black);
+      color: var(--muted);
       padding: 0 2.5rem;
     }
-    .marquee-track .sep { opacity: 0.35; padding: 0; }
+    .marquee-track .sep { opacity: 0.35; padding: 0; color: var(--gold); }
     @keyframes marqueeScroll {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -425,7 +456,7 @@
     /* ── FEATURED COLLECTION ── */
     .featured {
       padding: 6rem 5vw;
-      background: #040404;
+      background: var(--dark);
     }
     .section-head {
       margin-bottom: 4rem;
@@ -453,12 +484,12 @@
     .product-card {
       position: relative;
       overflow: hidden;
-      background: #0a0a0a;
+      background: var(--dark);
       cursor: none;
       transform-origin: center;
       transition: transform 0.6s var(--ease);
     }
-    .product-card:hover { transform: rotate(0.5deg) scale(1.01); z-index: 2; }
+    .product-card:hover { transform: scale(1.01); z-index: 2; box-shadow: 0 0 40px rgba(109,40,217,0.25); }
     .product-card img {
       width: 100%;
       height: 520px;
@@ -612,7 +643,7 @@
       padding: 10rem 5vw;
       text-align: center;
       position: relative;
-      background: #040404;
+      background: var(--dark);
       overflow: hidden;
     }
     .philosophy::before {
@@ -676,10 +707,49 @@
     .notify-title {
       font-family: 'Cinzel', serif;
       font-weight: 900;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: 0.15em;
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      letter-spacing: 0.1em;
+      line-height: 1.2;
       color: var(--white);
       margin-bottom: 1rem;
+    }
+
+    /* ── COUNTDOWN ── */
+    .countdown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 2.5rem 0;
+    }
+    .countdown-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 80px;
+    }
+    .countdown-num {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.45rem;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+    .countdown-sep {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: rgba(201,162,39,0.3);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
     }
     .notify-sub {
       font-family: 'Cinzel', serif;
@@ -724,7 +794,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #030303;
+      background: #080808;
       border-top: 1px solid rgba(201,168,76,0.06);
       padding: 5rem 5vw 2.5rem;
     }
@@ -884,19 +954,19 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-line"></div>
-        <span>Netherlands · Est. 2026</span>
+        <span>Athletic Premium Streetwear</span>
       </div>
       <h1 class="hero-title">
-        WEAR YOUR<br>
-        <em>DISCIPLINE.</em>
+        COMMAND<br>
+        <em>YOUR GAME.</em>
       </h1>
       <p class="hero-desc">
-        Excellence isn't given.<br>
-        It's earned through discipline, every single day.
+        Built for athletes who refuse to settle.<br>
+        Discipline creates greatness.
       </p>
       <div class="hero-btns">
-        <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Early%20Access%20Request&body=Hi%20IMPERA%2C%0A%0APlease%20add%20me%20to%20the%20early%20access%20list.%0A%0AName%3A%20%0AEmail%3A%20" class="btn-primary"><span>Coming Soon</span></a>
-        <a href="#collection" class="btn-ghost">Explore</a>
+        <a href="#collection" class="btn-primary"><span>Explore Collection</span></a>
+        <a href="#notify" class="btn-ghost">Join Waitlist</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -994,17 +1064,17 @@
       <div class="why-card reveal">
         <div class="why-num">01</div>
         <div class="why-word">Discipline</div>
-        <p class="why-desc">You are your only competition. Every rep, every set, every early morning — IMPERA is built for those who show up when nobody's watching.</p>
+        <p class="why-desc">Success begins long before the results show. Every rep in the dark, every choice that no one witnesses — that is where IMPERA athletes are built.</p>
       </div>
       <div class="why-card reveal reveal-delay-1">
         <div class="why-num">02</div>
-        <div class="why-word">Growth</div>
-        <p class="why-desc">Every day is an opportunity to become stronger. IMPERA gear moves with you — engineered for the athlete who never stops improving.</p>
+        <div class="why-word">Self Mastery</div>
+        <p class="why-desc">Every rep. Every choice. Every day. The athlete who commands themselves first commands everything else. IMPERA is built for that pursuit.</p>
       </div>
       <div class="why-card reveal reveal-delay-2">
         <div class="why-num">03</div>
-        <div class="why-word">Dominance</div>
-        <p class="why-desc">Excellence follows those who refuse to quit. Wear the brand that reflects your standard — premium, intentional, unstoppable.</p>
+        <div class="why-word">Command Your Game</div>
+        <p class="why-desc">Your greatest opponent is yesterday's version of yourself. Not the competition. Not the crowd. The standard you set — and rise above — every single day.</p>
       </div>
     </div>
   </section>
@@ -1026,16 +1096,39 @@
     <div class="notify-grid-bg"></div>
     <div class="notify-inner">
       <img src="assets/images/icon.png" alt="IMPERA" class="notify-icon reveal">
-      <p class="notify-eyebrow reveal">Launching Soon</p>
-      <h2 class="notify-title reveal">IMPERA</h2>
+      <p class="notify-eyebrow reveal">Coming Soon</p>
+      <h2 class="notify-title reveal">BE THE FIRST<br>TO WEAR IMPERA.</h2>
       <p class="notify-sub reveal">Command Your Game</p>
-      <p class="notify-desc reveal">
-        We're putting the final touches on something built to last.
-        Be the first to know when IMPERA drops — exclusive early access
-        before we open to the world.
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="countdown reveal reveal-delay-1">
+        <div class="countdown-block">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="notify-desc reveal reveal-delay-2">
+        We're building something that goes beyond apparel.<br>
+        Join the waitlist — exclusive early access before we open to the world.
       </p>
-      <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Early%20Access%20Request&body=Hi%20IMPERA%2C%0A%0APlease%20add%20me%20to%20the%20early%20access%20list.%0A%0AName%3A%20%0AEmail%3A%20" class="notify-cta reveal">Request Early Access</a>
-      <p class="notify-note reveal">
+      <a href="mailto:wearimperaofficial@gmail.com?subject=IMPERA%20Early%20Access%20Request&body=Hi%20IMPERA%2C%0A%0APlease%20add%20me%20to%20the%20early%20access%20list.%0A%0AName%3A%20%0AEmail%3A%20" class="notify-cta reveal reveal-delay-3">Join the Waitlist</a>
+      <p class="notify-note reveal reveal-delay-4">
         Email us at <a href="mailto:wearimperaofficial@gmail.com">wearimperaofficial@gmail.com</a> · No spam, ever.
       </p>
     </div>
@@ -1164,6 +1257,27 @@
         setTimeout(() => window.scrollBy({ top: -2, behavior: 'smooth' }), 600);
       }
     }, 4000);
+
+    // ── COUNTDOWN TIMER ──
+    (function() {
+      // Launch target: September 1, 2025 00:00:00 UTC
+      const target = new Date('2025-09-01T00:00:00Z').getTime();
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent  = pad(d);
+        document.getElementById('cd-hours').textContent = pad(h);
+        document.getElementById('cd-mins').textContent  = pad(m);
+        document.getElementById('cd-secs').textContent  = pad(s);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
   </script>
 </body>
 </html>
