@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +48,7 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;transition:all 0.6s var(--ease)}
     nav.scrolled{padding:1rem 5vw;background:rgba(5,5,5,0.88);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-bottom:1px solid rgba(201,162,39,0.2)}
     .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-    .nav-logo img{height:28px}
+    .nav-logo img{height:32px}
     .nav-logo-text{font-family:'Cinzel',serif;font-weight:900;font-size:0.95rem;letter-spacing:0.42em;color:var(--white)}
     .nav-links{display:flex;gap:3rem;list-style:none}
     .nav-links a{font-size:0.62rem;font-weight:400;letter-spacing:0.28em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color 0.3s;position:relative}
@@ -62,11 +61,11 @@
     .hamburger span{display:block;width:22px;height:1px;background:var(--white);transition:all 0.3s}
  
     /* HERO */
-    .hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden}
+    .hero{position:relative;height:100vh;height:100dvh;min-height:600px;display:flex;align-items:center;overflow:hidden}
     .hero-bg{position:absolute;inset:0;z-index:0;will-change:transform;transition:transform 0.1s linear}
-    .hero-bg img{width:100%;height:115%;object-fit:cover;object-position:center top;display:block;filter:brightness(0.57);transform:scale(1.05);animation:heroZoom 10s var(--ease) forwards}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:brightness(0.68);transform:scale(1.05);animation:heroZoom 10s var(--ease) forwards}
     @keyframes heroZoom{to{transform:scale(1.0)}}
-    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.92) 0%,rgba(5,5,5,0.15) 35%,transparent 60%),linear-gradient(to right,rgba(5,5,5,0.35) 0%,transparent 50%)}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.88) 0%,rgba(5,5,5,0.1) 30%,transparent 55%),linear-gradient(to right,rgba(5,5,5,0.28) 0%,transparent 50%)}
     .hero-content{position:relative;z-index:2;padding:0 6vw;max-width:900px}
     /* Eyebrow animates in last */
     .hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;opacity:0;transform:translateY(16px);animation:fadeUp 0.9s var(--ease) 2.6s forwards}
@@ -125,11 +124,11 @@
     .section-head{margin-bottom:5rem}
     .section-eyebrow{font-size:0.52rem;letter-spacing:0.55em;color:var(--gold);text-transform:uppercase;font-weight:300;margin-bottom:1.2rem}
     .section-title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.8rem,4vw,3.2rem);letter-spacing:0.12em;color:var(--white)}
-    .products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+    .products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .product-card{position:relative;overflow:hidden;background:var(--dark);cursor:none;transition:box-shadow 0.7s var(--ease)}
-    .product-card:hover{z-index:2;box-shadow:0 0 60px rgba(109,40,217,0.2)}
-    .product-card img{width:100%;height:580px;object-fit:cover;object-position:top;display:block;filter:brightness(0.72);transition:transform 1s var(--ease),filter 0.7s}
-    .product-card:hover img{transform:scale(1.04);filter:brightness(0.48)}
+    .product-card:hover{z-index:2;box-shadow:0 0 80px rgba(109,40,217,0.18)}
+    .product-card img{width:100%;height:660px;object-fit:cover;object-position:top;display:block;filter:brightness(0.78);transition:transform 1.2s var(--ease),filter 0.9s}
+    .product-card:hover img{transform:scale(1.05);filter:brightness(0.5)}
     .product-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.97) 0%,rgba(5,5,5,0.15) 55%,transparent 80%);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem}
     .product-tag{font-size:0.44rem;letter-spacing:0.45em;color:var(--gold);text-transform:uppercase;font-weight:300;margin-bottom:1.2rem;opacity:0.8}
     .product-name{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);letter-spacing:0.14em;color:var(--white);margin-bottom:0.5rem}
@@ -231,12 +230,15 @@
       .hamburger{display:flex}
       .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(5,5,5,0.99);align-items:center;justify-content:center;gap:2.5rem;z-index:999}
       .nav-links.open a{font-size:0.9rem}
-      .hero-content{padding:0 5vw}
+      .hero{align-items:flex-end;padding-bottom:6rem}
+      .hero-content{padding:0 5vw;max-width:100%}
       .hero-btns{flex-direction:column}
       .hero-btns .btn-primary,.hero-btns .btn-ghost{text-align:center;justify-content:center}
       .statement{padding:8rem 5vw}
       .why{padding:6rem 5vw}
       .featured{padding:6rem 5vw}
+      .products-grid{grid-template-columns:1fr;gap:8px}
+      .product-card img{height:520px}
       .philosophy{padding:8rem 5vw}
       .discipline-strip{padding:7rem 5vw}
       .notify-section{padding:7rem 5vw}
