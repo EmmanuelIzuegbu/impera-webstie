@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +30,11 @@
     ::-webkit-scrollbar{width:2px}
     ::-webkit-scrollbar-track{background:var(--black)}
     ::-webkit-scrollbar-thumb{background:var(--gold)}
-
+ 
     /* CURSOR */
     .cursor{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform 0.1s var(--ease);mix-blend-mode:difference}
     .cursor-follower{width:36px;height:36px;border:1px solid rgba(201,162,39,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform 0.15s var(--ease),width 0.3s var(--ease),height 0.3s var(--ease),border-color 0.3s}
-
+ 
     /* LOADER */
     #loader{position:fixed;inset:0;background:var(--black);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;transition:opacity 0.8s var(--ease),visibility 0.8s}
     #loader.hidden{opacity:0;visibility:hidden}
@@ -43,7 +44,7 @@
     .loader-bar-wrap{width:200px;height:1px;background:rgba(255,255,255,0.1);overflow:hidden}
     .loader-bar{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));width:0%;animation:loadBar 1.8s var(--ease) forwards}
     @keyframes loadBar{to{width:100%}}
-
+ 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;transition:all 0.6s var(--ease)}
     nav.scrolled{padding:1rem 5vw;background:rgba(5,5,5,0.88);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-bottom:1px solid rgba(201,162,39,0.2)}
@@ -59,13 +60,13 @@
     .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--black);box-shadow:0 0 20px rgba(201,162,39,0.35)}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:none}
     .hamburger span{display:block;width:22px;height:1px;background:var(--white);transition:all 0.3s}
-
+ 
     /* HERO */
     .hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden}
     .hero-bg{position:absolute;inset:0;z-index:0;will-change:transform;transition:transform 0.1s linear}
     .hero-bg img{width:100%;height:115%;object-fit:cover;object-position:center top;display:block;filter:brightness(0.57);transform:scale(1.05);animation:heroZoom 10s var(--ease) forwards}
     @keyframes heroZoom{to{transform:scale(1.0)}}
-    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.92) 0%,rgba(5,5,5,0.32) 45%,transparent 75%),linear-gradient(to right,rgba(5,5,5,0.52) 0%,transparent 55%)}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.92) 0%,rgba(5,5,5,0.15) 35%,transparent 60%),linear-gradient(to right,rgba(5,5,5,0.35) 0%,transparent 50%)}
     .hero-content{position:relative;z-index:2;padding:0 6vw;max-width:900px}
     /* Eyebrow animates in last */
     .hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;opacity:0;transform:translateY(16px);animation:fadeUp 0.9s var(--ease) 2.6s forwards}
@@ -90,7 +91,7 @@
     .hero-scroll span{font-size:0.42rem;letter-spacing:0.48em;color:var(--muted);text-transform:uppercase;writing-mode:vertical-rl}
     .scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollLine 2.2s ease-in-out infinite}
     @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
+ 
     /* SHARED ANIMATIONS */
     @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
     @keyframes fadeIn{to{opacity:1}}
@@ -101,14 +102,14 @@
     .reveal-delay-2{transition-delay:0.3s}
     .reveal-delay-3{transition-delay:0.45s}
     .reveal-delay-4{transition-delay:0.6s}
-
+ 
     /* MARQUEE */
     .marquee{overflow:hidden;background:var(--dark);border-top:1px solid rgba(201,162,39,0.12);border-bottom:1px solid rgba(201,162,39,0.12);padding:1.1rem 0;white-space:nowrap}
     .marquee-track{display:inline-flex;animation:marqueeScroll 35s linear infinite}
     .marquee-track span{font-size:0.54rem;font-weight:400;letter-spacing:0.45em;text-transform:uppercase;color:var(--muted);padding:0 2.5rem}
     .marquee-track .sep{opacity:0.4;padding:0;color:var(--gold)}
     @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
+ 
     /* STATEMENT */
     .statement{padding:12rem 5vw;position:relative;overflow:hidden;text-align:center}
     .statement::before{content:'IMPERA';position:absolute;font-family:'Cinzel',serif;font-weight:900;font-size:clamp(10rem,25vw,22rem);color:rgba(109,40,217,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;letter-spacing:0.2em;pointer-events:none;user-select:none}
@@ -118,7 +119,7 @@
     .statement-text{font-family:'Cinzel',serif;font-weight:400;font-size:clamp(1.3rem,3.5vw,2.5rem);letter-spacing:0.06em;line-height:1.7;color:var(--white);margin-bottom:2.5rem}
     .statement-text em{color:var(--gold);font-style:normal}
     .statement-author{font-size:0.55rem;letter-spacing:0.4em;color:var(--muted);text-transform:uppercase}
-
+ 
     /* FEATURED */
     .featured{padding:9rem 5vw;background:var(--dark)}
     .section-head{margin-bottom:5rem}
@@ -137,10 +138,10 @@
     .product-card:hover .product-action{opacity:1;transform:translateY(0)}
     .product-action .pa-arrow{font-size:1.1rem;transition:transform 0.4s var(--ease);line-height:1}
     .product-action:hover .pa-arrow{transform:translateX(6px)}
-
+ 
     /* GLOW DIV */
     .glow-div{height:1px;background:linear-gradient(90deg,transparent,var(--purple),var(--gold),var(--purple),transparent);opacity:0.25}
-
+ 
     /* WHY */
     .why{padding:10rem 5vw;position:relative;overflow:hidden}
     .why::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(109,40,217,0.09) 0%,transparent 70%);pointer-events:none}
@@ -153,7 +154,7 @@
     .why-num{font-family:'Cinzel',serif;font-size:3.5rem;font-weight:900;color:rgba(201,162,39,0.07);line-height:1;margin-bottom:2.5rem;letter-spacing:0.05em}
     .why-word{font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.45em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
     .why-desc{font-size:0.78rem;color:var(--muted);line-height:2.1;font-weight:300;letter-spacing:0.03em}
-
+ 
     /* PHILOSOPHY — YOU VS YOU — near fullscreen */
     .philosophy{padding:12rem 5vw;text-align:center;position:relative;background:var(--dark);overflow:hidden}
     .philosophy::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(109,40,217,0.11) 0%,transparent 70%)}
@@ -162,7 +163,7 @@
     .philosophy-quote .vs-line{display:block;font-size:0.28em;color:var(--gold);letter-spacing:0.5em;margin:0.3em 0}
     .philosophy-quote em{color:var(--gold);font-style:normal}
     .philosophy-sub{font-size:0.65rem;letter-spacing:0.55em;color:var(--muted);text-transform:uppercase;font-weight:300}
-
+ 
     /* DISCIPLINE STRIP */
     .discipline-strip{padding:10rem 5vw;text-align:center;position:relative;overflow:hidden}
     .discipline-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(109,40,217,0.08) 0%,transparent 70%)}
@@ -170,7 +171,7 @@
     .discipline-text{font-family:'Cinzel',serif;font-weight:400;font-size:clamp(1.4rem,3.5vw,2.6rem);letter-spacing:0.06em;line-height:1.65;color:var(--white);margin-bottom:1.5rem}
     .discipline-text em{color:var(--gold);font-style:normal}
     .discipline-sub{font-size:0.55rem;letter-spacing:0.45em;color:var(--muted);text-transform:uppercase;font-weight:300}
-
+ 
     /* NOTIFY */
     .notify-section{padding:10rem 5vw;position:relative;overflow:hidden}
     .notify-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(109,40,217,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(109,40,217,0.03) 1px,transparent 1px);background-size:80px 80px}
@@ -191,7 +192,7 @@
     .notify-note{font-size:0.5rem;letter-spacing:0.22em;color:rgba(248,248,248,0.18);text-transform:uppercase}
     .notify-note a{color:var(--gold);text-decoration:none;opacity:0.6;transition:opacity 0.3s}
     .notify-note a:hover{opacity:1}
-
+ 
     /* FOOTER */
     footer{background:#070707;border-top:1px solid rgba(201,162,39,0.08);padding:8rem 5vw 3rem}
     .footer-cta{text-align:center;margin-bottom:6rem;padding-bottom:6rem;border-bottom:1px solid rgba(255,255,255,0.04)}
@@ -215,7 +216,7 @@
     .footer-col ul li a:hover{color:var(--white)}
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
     .footer-bottom span{font-size:0.48rem;letter-spacing:0.26em;color:rgba(248,248,248,0.14);text-transform:uppercase}
-
+ 
     /* RESPONSIVE */
     @media(max-width:1024px){
       nav{padding:1.5rem 4vw}
@@ -250,16 +251,16 @@
   </style>
 </head>
 <body>
-
+ 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
-
+ 
   <div id="loader">
     <img src="assets/images/icon.png" alt="" class="loader-icon">
     <div class="loader-word">IMPERA</div>
     <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   </div>
-
+ 
   <nav id="navbar">
     <a href="#" class="nav-logo">
       <img src="assets/images/icon.png" alt="IMPERA">
@@ -275,7 +276,7 @@
       <span></span><span></span><span></span>
     </div>
   </nav>
-
+ 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg" id="heroBg">
@@ -305,7 +306,7 @@
       <span>Scroll</span>
     </div>
   </section>
-
+ 
   <!-- MARQUEE -->
   <div class="marquee">
     <div class="marquee-track">
@@ -325,7 +326,7 @@
       <span>Discipline &middot; Strength &middot; Focus &middot; Legacy</span><span class="sep">&#10022;</span>
     </div>
   </div>
-
+ 
   <!-- BRAND PHILOSOPHY -->
   <section class="statement">
     <div class="statement-inner">
@@ -339,7 +340,7 @@
       <p class="statement-author reveal reveal-delay-2">&#8212; Built in the Netherlands &middot; Built for the World</p>
     </div>
   </section>
-
+ 
   <!-- FEATURED COLLECTION -->
   <section class="featured" id="collection">
     <div class="section-head reveal">
@@ -385,9 +386,9 @@
       </div>
     </div>
   </section>
-
+ 
   <div class="glow-div"></div>
-
+ 
   <!-- WHY IMPERA -->
   <section class="why" id="why">
     <h2 class="why-title reveal">WHY IMPERA</h2>
@@ -409,7 +410,7 @@
       </div>
     </div>
   </section>
-
+ 
   <!-- YOU VS YOU -->
   <section class="philosophy">
     <div class="philosophy-inner">
@@ -419,7 +420,7 @@
       <p class="philosophy-sub reveal reveal-delay-1">The only competition that matters</p>
     </div>
   </section>
-
+ 
   <!-- DISCIPLINE STRIP -->
   <section class="discipline-strip">
     <div class="discipline-inner">
@@ -430,9 +431,9 @@
       <p class="discipline-sub reveal reveal-delay-1">One choice at a time</p>
     </div>
   </section>
-
+ 
   <div class="glow-div"></div>
-
+ 
   <!-- NOTIFY -->
   <section class="notify-section" id="notify">
     <div class="notify-grid-bg"></div>
@@ -460,7 +461,7 @@
       </p>
     </div>
   </section>
-
+ 
   <!-- FOOTER -->
   <footer>
     <div class="footer-cta reveal">
@@ -515,13 +516,13 @@
       <span>Discipline &middot; Strength &middot; Focus &middot; Legacy</span>
     </div>
   </footer>
-
+ 
   <script>
     // LOADER
     window.addEventListener('load', () => {
       setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2200);
     });
-
+ 
     // CURSOR
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursorFollower');
@@ -540,23 +541,23 @@
       el.addEventListener('mouseenter', () => { follower.style.width='60px'; follower.style.height='60px'; follower.style.borderColor='rgba(201,162,39,0.85)'; });
       el.addEventListener('mouseleave', () => { follower.style.width='36px'; follower.style.height='36px'; follower.style.borderColor='rgba(201,162,39,0.5)'; });
     });
-
+ 
     // NAV
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 80));
-
+ 
     // MOBILE NAV
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
+ 
     // SCROLL REVEAL
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+ 
     // HERO PARALLAX — scroll
     const heroBg = document.getElementById('heroBg');
     window.addEventListener('scroll', () => {
@@ -564,7 +565,7 @@
         heroBg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
       }
     }, { passive: true });
-
+ 
     // HERO PARALLAX — mouse
     const heroSection = document.querySelector('.hero');
     let heroParallaxActive = false;
@@ -581,7 +582,7 @@
       heroBg.style.transition = 'transform 1.2s ease';
       heroBg.style.transform = 'translate(0, 0)';
     });
-
+ 
     // COUNTDOWN
     (function() {
       const target = new Date('2025-09-01T00:00:00Z').getTime();
